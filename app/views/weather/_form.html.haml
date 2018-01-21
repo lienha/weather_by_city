@@ -1,0 +1,12 @@
+- if params[:city].nil? || params[:city].empty? || @results
+  = form_tag root_path, method: :get do
+    %form
+      .form-group.row
+        = label_tag :city, "City", class: "col-sm-4 col-form-label text-right"
+        .col-sm-4
+          = text_field_tag :city, display_last_city_if_not_found, class: "form-control"
+      .form-group.row
+        = label_tag :country, "Country", class: "col-sm-4 col-form-label text-right"
+        .col-sm-4
+          = select_tag :country, options_for_select(COUNTRIES, (params[:country] || DEFAULT_COUNTRY)), class: "form-control"
+      = submit_tag "Submit", class: "btn btn-primary"

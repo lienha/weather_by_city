@@ -1,3 +1,5 @@
 .page-header
   %h1 Weather by City
-%p Type city name in the search box
+
+= render partial: "summary"
+= render partial: "form" if !@trouble

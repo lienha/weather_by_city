@@ -1,0 +1,11 @@
+.results
+  - if !@results
+    %h6.pb-2 Type city name in the search box
+  - else
+    - if status == true
+      %h4= "#{city}, #{country}"
+      %p= "#{description} #{temperature}°F"
+      %div= image_tag weather_icon, width:"50", height:"50"
+      %p= "Low #{temp_min}°F, High #{temp_max}°F"
+    - else
+      %h6.pb-2= status.capitalize
